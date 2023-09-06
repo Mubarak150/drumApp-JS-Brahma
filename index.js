@@ -1,11 +1,21 @@
+//for touch screen...
 for(var i = 0; i<7; i++) {
    document.querySelectorAll("button")[i].addEventListener("click", clickHandler); 
 }
 
 function clickHandler() {
     var buttonInnerHTML = this.innerHTML;
+    makeSound(buttonInnerHTML);
+}
 
-    switch (buttonInnerHTML) {
+//for keyboard...
+document.addEventListener("keydown", function(event){
+    makeSound(event.key);
+});
+
+//function makeSound(key)
+function makeSound(key) {
+    switch (key) {
         case "w":
             var audio1 = new Audio("sounds/audio1.mp3");
             audio1.play();  
@@ -34,5 +44,4 @@ function clickHandler() {
             var audio7 = new Audio("sounds/audio7.mp3");
             audio7.play(); 
     }
-
 }
